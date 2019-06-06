@@ -172,4 +172,4 @@ client.on('message', message => {
 
 
 
-client.login('(Token would go here);
+client.login(BOT_TOKEN);
