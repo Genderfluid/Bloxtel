@@ -164,11 +164,6 @@ client.on('message', message => {
 
 
 
-  client.on('message', message => {
-    if (message.content === ';bloxtelyoutube') {
-      message.channel.send('https://www.youtube.com/channel/UCjCoBcN5lFg5622SqDWF_Bw?view_as=subscriber');
-    }
-  });
 
 
 
