@@ -7,7 +7,7 @@ const Discord = require("discord.js"),
 
 client.on("ready",async() =>{
     console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`); 
-    client.user.setActivity (`HUGE UPDATE | ;help`, {type:3}) 
+    client.user.setActivity (`COPYRIGHT | ;help`, {type:3}) 
 });
 
 client.on("message",async(message) => {
@@ -113,42 +113,29 @@ client.on('message', message => {
   }
 });
 
-
 client.on('message', message => {
   if (message.content === ';ping') {
     message.channel.send('Pong');
   }
 });
 
-
-
 client.on('message', message => {
   if (message.content === ';version') {
-    message.channel.send('Bloxtel is currently running Version 15.1.');
+    message.channel.send('Bloxtel is currently running Version 20.0.');
   }
 });
 
 client.on('message', message => {
   if (message.content === ';help') {
-    message.channel.send('My prefix is ;. Commands: ban, mute, unmute, kick, calc, eval, help, version, ping, creators, invite, and guilds');
+    message.channel.send('My prefix is ;. Commands: ban, mute, unmute, kick, calc, eval, help, version, ping, youtube, invite, and guilds.');
   }
 });
-
-
 
 client.on('message', message => {
   if (message.content === ';invite') {
     message.channel.send('https://bit.ly/bloxtel');
   }
 });
-
-client.on('message', message => {
-  if (message.content === ';creators') {
-    message.channel.send('Bloxtel was developed by RogueNeon#0725 and TechnologyPlayz#0772');
-  }
-});
-
-
 
 client.on('message', message => {
     if (message.content === ';config') {
@@ -162,9 +149,10 @@ client.on('message', message => {
     }
   });
 
+  client.on('message', message => {
+    if (message.content === ';youtube') {
+      message.channel.send('https://www.youtube.com/channel/UCjCoBcN5lFg5622SqDWF_Bw?view_as=subscriber');
+    }
+  });
 
-
-
-
-
-client.login('BOT_TOKEN');
+client.login('NTU5ODc5OTEyMzU4Njc0NDMy.XNc74g.LEH6Btt-JmS6uFikB68vgZFWitY');
