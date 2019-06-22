@@ -7,7 +7,7 @@ const Discord = require("discord.js"),
 
 client.on("ready",async() =>{
     console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`); 
-    client.user.setActivity (`WEB HOSTING IS HERE!!!!!! | ;help`, {type:3}) 
+    client.user.setActivity (`BLOXTEL PRO IS HERE!!!!!! | ;help`, {type:3}) 
 });
 
 client.on("message",async(message) => {
