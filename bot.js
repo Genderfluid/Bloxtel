@@ -3,11 +3,11 @@ const Discord = require("discord.js"),
     prefix = ";",
     token = "";
 
-
+const Code = BloxtelProCode0000000000000000000000001
 
 client.on("ready",async() =>{
     console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`); 
-    client.user.setActivity (`WEB HOSTING IS HERE!!!!!! | ;help`, {type:3}) 
+    client.user.setActivity (`BLOXTEL PRO IS HERE!!! | ;help`, {type:3}) 
 });
 
 client.on("message",async(message) => {
@@ -22,6 +22,11 @@ client.on("message",async(message) => {
             break;
     }
 });
+
+
+
+
+
 
 client.on("ready", () => {
   console.log("ready to rumble!");
@@ -91,10 +96,8 @@ client.on("message", msg => {
     var mc = msg.content.split(" ")[1];
     msg.channel.bulkDelete(mc);
   }
-  if (msg.content.toLowerCase().startsWith(prefix + "eval")) {
-    var sc = msg.content.substring(msg.content.indexOf(" "));
-    eval(sc);
-  }
+
+  
   if (msg.content.toLowerCase().startsWith(prefix + "calc")) {
     var ca = msg.content.substring(msg.content.indexOf(" "));
     msg.reply(ca + " is " + eval(ca).toFixed(2));
@@ -156,6 +159,15 @@ client.on('message', message => {
   });
 
 
+
+
+
+
+  client.on('message', message => {
+    if (message.content === ';redeem' + Code) {
+      message.channel.send('@RogueNeon#0725 , Someone has redeemed Bloxtel Pro. Please invite the bot to the requested server.');
+    }
+  });
 
 
 
