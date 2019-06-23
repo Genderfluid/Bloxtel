@@ -91,10 +91,7 @@ client.on("message", msg => {
     var mc = msg.content.split(" ")[1];
     msg.channel.bulkDelete(mc);
   }
-  if (msg.content.toLowerCase().startsWith(prefix + "eval")) {
-    var sc = msg.content.substring(msg.content.indexOf(" "));
-    eval(sc);
-  }
+ 
   if (msg.content.toLowerCase().startsWith(prefix + "calc")) {
     var ca = msg.content.substring(msg.content.indexOf(" "));
     msg.reply(ca + " is " + eval(ca).toFixed(2));
