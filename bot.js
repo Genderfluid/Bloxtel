@@ -156,4 +156,4 @@ client.on('message', message => {
 
 
 
-client.login('Token here');
+client.login('NTU5ODc5OTEyMzU4Njc0NDMy.XR9YTw.9d0gM4xnAvha3LyN7y4HRBxhiR8');
