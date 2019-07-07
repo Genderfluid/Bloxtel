@@ -91,13 +91,7 @@ client.on("message", msg => {
     var mc = msg.content.split(" ")[1];
     msg.channel.bulkDelete(mc);
   }
- 
-  if (msg.content.toLowerCase().startsWith(prefix + "calc")) {
-    var ca = msg.content.substring(msg.content.indexOf(" "));
-    msg.reply(ca + " is " + eval(ca).toFixed(2));
-  }
 });
-
 client.on('guildMemberAdd', member => {
   const channel = member.guild.channels.find(ch => ch.name === 'Join-Leave');
   if (!channel) return;
