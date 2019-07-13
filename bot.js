@@ -93,7 +93,7 @@ client.on("message", msg => {
   }
 });
 client.on('guildMemberAdd', member => {
-  const channel = member.guild.channels.find(ch => ch.name === 'bloxtel join and leave logs');
+  const channel = member.guild.channels.find(ch => ch.name === 'Join-Leave');
   if (!channel) return;
   channel.send(`Welcome to the server, ${member}`);
 });
@@ -127,7 +127,7 @@ client.on('message', message => {
 
 client.on('message', message => {
   if (message.content === ';help') {
-    message.channel.send('My prefix is ;.  Commands: ban, mute, unmute, kick, purge, calc, help, version, ping, youtube, and invite.');
+    message.channel.send('My prefix is ;. Commands: ban, mute, unmute, kick, calc, eval, help, version, ping, youtube, invite, and guilds.');
   }
 });
 
@@ -146,6 +146,12 @@ client.on('message', message => {
   client.on('message', message => {
     if (message.content === ';vote') {
       message.channel.send('Vote for Bloxtel on Discord Bot List here: https://discordbotlist.com/bots/559879912358674432/upvote');
+    }
+  });
+
+  client.on('message', message => {
+    if (message.content === ';youtube') {
+      message.channel.send('https://www.youtube.com/channel/UCjCoBcN5lFg5622SqDWF_Bw?view_as=subscriber');
     }
   });
 
