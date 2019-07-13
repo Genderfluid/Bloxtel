@@ -93,7 +93,7 @@ client.on("message", msg => {
   }
 });
 client.on('guildMemberAdd', member => {
-  const channel = member.guild.channels.find(ch => ch.name === 'Join-Leave');
+  const channel = member.guild.channels.find(ch => ch.name === 'Bloxtel join leave messages');
   if (!channel) return;
   channel.send(`Welcome to the server, ${member}`);
 });
@@ -116,13 +116,13 @@ client.on('message', message => {
 
 client.on('message', message => {
   if (message.content === ';version') {
-    message.channel.send('Bloxtel is currently running Version 20.0.');
+    message.channel.send('Bloxtel is currently running Version 22.0.');
   }
 });
 
 client.on('message', message => {
   if (message.content === ';help') {
-    message.channel.send('My prefix is ;. Commands: ban, mute, unmute, kick, calc, eval, help, version, ping, youtube, invite, and guilds.');
+    message.channel.send('My prefix is ;. Commands: ban, mute, unmute, kick, purge, calc, help, version, ping, youtube, invite, and guilds.');
   }
 });
 
