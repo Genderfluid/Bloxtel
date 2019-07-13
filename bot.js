@@ -143,21 +143,5 @@ client.on('message', message => {
     }
   });
 
-  client.on('message', message => {
-    if (message.content === ';vote') {
-      message.channel.send('Vote for Bloxtel on Discord Bot List here: https://discordbotlist.com/bots/559879912358674432/upvote');
-    }
-  });
-
-  client.on('message', message => {
-    if (message.content === ';youtube') {
-      message.channel.send('https://www.youtube.com/channel/UCjCoBcN5lFg5622SqDWF_Bw?view_as=subscriber');
-    }
-  });
-
-  
-
-
-
 
 client.login('NTU5ODc5OTEyMzU4Njc0NDMy.XSoqag.RZDGj3d8HAwnKcGETrwPbGgV8B0');
