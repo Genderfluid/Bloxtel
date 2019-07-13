@@ -107,11 +107,6 @@ client.on('message', message => {
 
 
 
-if (msg.content.toLowerCase().startsWith(prefix + "calc")) {
-    var ca = msg.content.substring(msg.content.indexOf(" "));
-    msg.reply(ca + " is " + eval(ca).toFixed(2));
-  }
-});
 
 client.on('message', message => {
   if (message.content === ';ping') {
