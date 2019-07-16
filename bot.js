@@ -1,6 +1,5 @@
 const Discord = require("discord.js"),
     client = new Discord.Client({ disableEveryone: true }),
-        BFDAPI = require("bfdapi.js");
       prefix = ";",
     token = "NTU5ODc5OTEyMzU4Njc0NDMy.XS4WFA.sX6Uqaf0w24HM8ctx3PUHT-JxBQ";
 
@@ -28,11 +27,6 @@ client.on("ready", () => {
   console.log("ready to rumble!");
 });
 
-client.on("ready",()=>{
-    const bfd = new BFDAPI(client,"64e674ef3e42f6053197edfe33b8532ceb14efef5ac6354e9a8a1206a26e1fd9fb0394694a94eb242d50b4677b18884bb5d06a098902b8b25033793e0584634d",/* autopost stats: true/false*/false,/* autopostInterval, how often to post stats? between 1 minute and 1 day (in ms), defaults to 5 minutes*/6e4,/*shardSupport, attempt to deal with ShardingManager sharding by fetching from each shard*/false);
-    bfd.on("post",(count)=>console.log(`Posted guild count: ${count}`));
-    bfd.on("error",(err)=>console.error(`Error while posting: ${err}`));
-});
 
 var bannedwords = "buster".split(",");
 
@@ -128,7 +122,7 @@ client.on('message', message => {
 
 client.on('message', message => {
   if (message.content === ';help') {
-    message.channel.send('My prefix is ;. Commands: ban, mute, unmute, kick, purge, calc, help, version, ping, youtube, invite, and guilds.');
+    message.channel.send('My prefix is ;. Commands: ban, mute, unmute, kick, purge, calc, help, version, ping, and invite.');
   }
 });
 
@@ -138,11 +132,7 @@ client.on('message', message => {
   }
 });
 
-client.on('message', message => {
-    if (message.content === ';config') {
-      message.channel.send('If you would like further custom configuration, please DM @RogueNeon#0725.');
-    }
-  });
+
 
 
 client.login('NTU5ODc5OTEyMzU4Njc0NDMy.XSoqag.RZDGj3d8HAwnKcGETrwPbGgV8B0');
