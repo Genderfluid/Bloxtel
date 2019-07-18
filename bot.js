@@ -97,6 +97,8 @@ client.on('guildMemberAdd', member => {
   channel.send(`Welcome to the server, ${member}`);
 });
 
+    
+client.on('message', async (msg) => {
 if (msg.content.startsWith(prefix + "userinfo")) {
     let member = msg.mentions.users.first() || msg.author;
     let userembed = new Discord.RichEmbed()
@@ -115,11 +117,6 @@ if (msg.content.startsWith(prefix + "userinfo")) {
         .addField("JoinedAt:", msg.guild.member(member).joinedAt, true)
         msg.channel.send(userembed);
 
-client.on('message', message => {
-  if (message.content === ';ping') {
-    message.channel.send('Pong');
-  }
-});
 
 client.on('message', message => {
   if (message.content === ';version') {
