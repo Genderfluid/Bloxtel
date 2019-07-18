@@ -117,7 +117,7 @@ client.on('message', message => {
 
 client.on('message', message => {
   if (message.content === ';help') {
-    message.channel.send('My prefix is ;. Commands: ban, mute, unmute, kick, calc, eval, help, version, ping, youtube, invite, and guilds.');
+    message.channel.send('My prefix is ;. Commands: ban, mute, unmute, kick, purge, help, version, ping, youtube, invite, and guilds.');
   }
 });
 
@@ -127,10 +127,6 @@ client.on('message', message => {
   }
 });
 
-client.on('message', message => {
-    if (message.content === ';config') {
-      message.channel.send('If you would like further custom configuration, please DM @RogueNeon#0725.');
-    }
   });
 
 
