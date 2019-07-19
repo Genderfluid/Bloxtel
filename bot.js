@@ -88,7 +88,7 @@ client.on("message", msg => {
     }
   }
   if (msg.content.toLowerCase().startsWith(prefix + "purge")) {
-    var mc = msg.content.split(" ")[1];
+    var mc = msg.content.split(" ")[1] + 1;
     msg.channel.bulkDelete(mc);
   }
 });
