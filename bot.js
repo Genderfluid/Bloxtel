@@ -51,7 +51,7 @@ client.on("message", msg => {
     mem.kick().then(() => {
       msg.channel.send(mem.displayName + " has successfully been kicked by " + msg.author.username + "!");
     }).catch(e => {
-      msg.channel.send("An error occured!");
+      msg.channel.send("An error occured! Please make sure that I have the Kick Members permission and that YOU have the Administrator permission!");
     });
   }
   if (msg.content.toLowerCase().startsWith(prefix + "ban ")) {
