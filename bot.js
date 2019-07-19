@@ -69,7 +69,7 @@ client.on("message", msg => {
       mem.addRole(msg.guild.roles.find("name", "Muted")).then(() => {
         msg.channel.send(mem.displayName + " has successfully been muted!");
       }).catch(e => {
-        msg.channel.send("An error occured!");
+        msg.channel.send("An error occured! Please check that the Muted role has already been created, that I have the Manage Roles permission, and that YOU have the Administrator permission!");
         console.log(e);
       });
 
@@ -81,7 +81,7 @@ client.on("message", msg => {
       mem.removeRole(msg.guild.roles.find("name", "Muted")).then(() => {
         msg.channel.send(mem.displayName + " has successfully been unmuted!");
       }).catch(e => {
-        msg.channel.send("An error occured!");
+        msg.channel.send("An error occured! Please check that the Muted role has already been created and that I have the Manage Roles permission and that YOU have the Administrator permission!");
         console.log(e);
       });
 
