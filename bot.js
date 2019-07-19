@@ -1,12 +1,13 @@
 const Discord = require("discord.js"),
     client = new Discord.Client({ disableEveryone: true }),
-    prefix = ";",
-    token = "";
+      prefix = ";",
+    token = "NTU5ODc5OTEyMzU4Njc0NDMy.XS4WFA.sX6Uqaf0w24HM8ctx3PUHT-JxBQ";
+
 
 
 client.on("ready",async() =>{
     console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`); 
-    client.user.setActivity (`Bloxtel Support Server | ;help`, {type:3}) 
+    client.user.setActivity (`Bloxtel Support Guild | ;help`, {type:3}) 
 });
 
 client.on("message",async(message) => {
@@ -50,7 +51,7 @@ client.on("message", msg => {
     mem.kick().then(() => {
       msg.channel.send(mem.displayName + " has successfully been kicked by " + msg.author.username + "!");
     }).catch(e => {
-      msg.channel.send("An error occured!Please check that I have the Kick Members permission and you have the Administrator permission!");
+      msg.channel.send("An error occured!");
     });
   }
   if (msg.content.toLowerCase().startsWith(prefix + "ban ")) {
@@ -59,7 +60,7 @@ client.on("message", msg => {
     mem.ban(mc).then(() => {
       msg.channel.send(mem.displayName + " has successfully been banned by " + msg.author.username + " for " + mc + " days!");
     }).catch(e => {
-      msg.channel.send("An error occured! Please check that I have the Ban Members permission and you have the Administrator permission!");
+      msg.channel.send("An error occured!");
     });
   }
   if (msg.content.toLowerCase().startsWith(prefix + "mute")) {
@@ -68,7 +69,7 @@ client.on("message", msg => {
       mem.addRole(msg.guild.roles.find("name", "Muted")).then(() => {
         msg.channel.send(mem.displayName + " has successfully been muted!");
       }).catch(e => {
-        msg.channel.send("An error occured!Please check that the Muted role has already been created and that I have the Manage Roles permission and that you have the ADMINISTRATOR permission!");
+        msg.channel.send("An error occured!");
         console.log(e);
       });
 
@@ -80,7 +81,7 @@ client.on("message", msg => {
       mem.removeRole(msg.guild.roles.find("name", "Muted")).then(() => {
         msg.channel.send(mem.displayName + " has successfully been unmuted!");
       }).catch(e => {
-        msg.channel.send("An error occured!Please check that I have the Manage Roles Permission and you have the Administrator permission!");
+        msg.channel.send("An error occured!");
         console.log(e);
       });
 
@@ -90,26 +91,38 @@ client.on("message", msg => {
     var mc = msg.content.split(" ")[1];
     msg.channel.bulkDelete(mc);
   }
-    
-    
-  
+});
 client.on('guildMemberAdd', member => {
-  const channel = member.guild.channels.find(ch => ch.name === 'Join-Leave');
+  const channel = member.guild.channels.find(ch => ch.name === 'Bloxtel join leave messages');
   if (!channel) return;
   channel.send(`Welcome to the server, ${member}`);
 });
 
- 
+client.on('message', message => {
+  if (message.content === ';avatar') {
+    message.reply(message.author.avatarURL);
+  }
+});
+
+
+
+
+
+client.on('message', message => {
+  if (message.content === ';ping') {
+    message.channel.send('Pong');
+  }
+});
 
 client.on('message', message => {
   if (message.content === ';version') {
-    message.channel.send('Bloxtel is currently running Version 20.0.');
+    message.channel.send('Bloxtel is currently running Version 22.0.');
   }
 });
 
 client.on('message', message => {
   if (message.content === ';help') {
-    message.channel.send('My prefix is ;. Commands: ban, mute, unmute, kick, purge, help, version, ping, youtube, invite, and guilds.');
+    message.channel.send('My prefix is ;. Commands: ban, mute, unmute, kick, purge, help, version, ping, and invite.');
   }
 });
 
@@ -119,8 +132,6 @@ client.on('message', message => {
   }
 });
 
-
-});
 
 
 
