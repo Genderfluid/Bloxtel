@@ -2,8 +2,9 @@ const Discord = require("discord.js"),
     client = new Discord.Client({ disableEveryone: true }),
       prefix = ";",
     token = "NTU5ODc5OTEyMzU4Njc0NDMy.XS4WFA.sX6Uqaf0w24HM8ctx3PUHT-JxBQ";
-
-
+const index = require ("./index.js");
+const ping = require("./ping.js");
+const avatar = require("./avatar.js");
 
 client.on("ready",async() =>{
     console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`); 
@@ -108,24 +109,10 @@ client.on('guildMemberAdd', member => {
   channel.send(`Welcome to the server, ${member}`);
 });
 
-client.on('message', message => {
-  if (message.content === ';avatar') {
-    message.reply(message.author.avatarURL);
-  }
-});
 
 
 
 
-
-client.on("message", (message)){ // EventEmitter
-	if(message.content == ";ping"){ // Check if message is "!ping"
-			message.channel.send("Pinging ...") // Placeholder for pinging ... 
-			.then((msg) => { // Resolve promise
-				msg.edit("Ping: " + (Date.now() - msg.createdTimestamp)) // Edits message with current timestamp minus timestamp of message
-			});
-		}
-}
 client.on('message', message => {
   if (message.content === ';version') {
     message.channel.send('Bloxtel is currently running Version 22.0.');
