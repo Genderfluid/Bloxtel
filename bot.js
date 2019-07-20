@@ -4,6 +4,8 @@ const Discord = require("discord.js"),
     token = "";
 const index = require ("./index.js");
 const avatar = require("./avatar.js");
+const config = require (".config.json");
+
 
 client.on("ready",async() =>{
     console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`); 
@@ -142,4 +144,4 @@ client.on("message", (message)){ // EventEmitter
 
 
 
-client.login('NTU5ODc5OTEyMzU4Njc0NDMy.XSoqag.RZDGj3d8HAwnKcGETrwPbGgV8B0');
+client.login(config.token);
