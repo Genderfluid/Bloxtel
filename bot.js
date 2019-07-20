@@ -2,9 +2,7 @@ const Discord = require("discord.js"),
     client = new Discord.Client({ disableEveryone: true }),
       prefix = ";",
     token = "";
-const index = require ("./index.js");
-const avatar = require("./avatar.js");
-const config = require (".config.json");
+
 
 
 client.on("ready",async() =>{
@@ -28,16 +26,6 @@ client.on("message",async(message) => {
 client.on("ready", () => {
   console.log("ready to rumble!");
 });
-client.on("guildCreate", guild => {
-  console.log(`New guild joined: ${guild.name} (id: ${guild.id}). This guild has ${guild.memberCount} members!`);
-  client.user.setActivity(`Serving ${client.guilds.size} servers`);
-});
-
-client.on("guildDelete", guild => {
-  console.log(`I have been removed from: ${guild.name} (id: ${guild.id})`);
-  client.user.setActivity(`Serving ${client.guilds.size} servers`);
-});
-
 
 
 var bannedwords = "buster".split(",");
@@ -63,7 +51,7 @@ client.on("message", msg => {
     mem.kick().then(() => {
       msg.channel.send(mem.displayName + " has successfully been kicked by " + msg.author.username + "!");
     }).catch(e => {
-      msg.channel.send("An error occured! Please make sure that I have the Kick Members permission and that YOU have the Administrator permission!");
+      msg.channel.send("An error occured!");
     });
   }
   if (msg.content.toLowerCase().startsWith(prefix + "ban ")) {
@@ -81,7 +69,7 @@ client.on("message", msg => {
       mem.addRole(msg.guild.roles.find("name", "Muted")).then(() => {
         msg.channel.send(mem.displayName + " has successfully been muted!");
       }).catch(e => {
-        msg.channel.send("An error occured! Please check that the Muted role has already been created, that I have the Manage Roles permission, and that YOU have the Administrator permission!");
+        msg.channel.send("An error occured!");
         console.log(e);
       });
 
@@ -93,14 +81,14 @@ client.on("message", msg => {
       mem.removeRole(msg.guild.roles.find("name", "Muted")).then(() => {
         msg.channel.send(mem.displayName + " has successfully been unmuted!");
       }).catch(e => {
-        msg.channel.send("An error occured! Please check that the Muted role has already been created and that I have the Manage Roles permission and that YOU have the Administrator permission!");
+        msg.channel.send("An error occured!");
         console.log(e);
       });
 
     }
   }
   if (msg.content.toLowerCase().startsWith(prefix + "purge")) {
-    var mc = msg.content.split(" ")[1] + 1;
+    var mc = msg.content.split(" ")[1];
     msg.channel.bulkDelete(mc);
   }
 });
@@ -110,9 +98,21 @@ client.on('guildMemberAdd', member => {
   channel.send(`Welcome to the server, ${member}`);
 });
 
+client.on('message', message => {
+  if (message.content === ';avatar') {
+    message.reply(message.author.avatarURL);
+  }
+});
 
 
 
+
+
+client.on('message', message => {
+  if (message.content === ';ping') {
+    message.channel.send('Pong');
+  }
+});
 
 client.on('message', message => {
   if (message.content === ';version') {
@@ -135,5 +135,4 @@ client.on('message', message => {
 
 
 
-
-client.login(config.token);
+client.login('NTU5ODc5OTEyMzU4Njc0NDMy.XSoqag.RZDGj3d8HAwnKcGETrwPbGgV8B0');
