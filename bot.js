@@ -37,7 +37,6 @@ client.on("guildDelete", guild => {
 });
 
 
-client.on("message", async message => {
 
 var bannedwords = "buster".split(",");
 
@@ -119,12 +118,14 @@ client.on('message', message => {
 
 
 
-client.on('message', message => {
- if(message.content === ";ping") {
-    const m = await message.channel.send("Ping?");
-    m.edit(`Pong! Latency is ${m.createdTimestamp - message.createdTimestamp}ms. API Latency is ${Math.round(client.ping)}ms`);
-  }
-
+client.on("message", (message)){ // EventEmitter
+	if(message.content == ";ping"){ // Check if message is "!ping"
+			message.channel.send("Pinging ...") // Placeholder for pinging ... 
+			.then((msg) => { // Resolve promise
+				msg.edit("Ping: " + (Date.now() - msg.createdTimestamp)) // Edits message with current timestamp minus timestamp of message
+			});
+		}
+}
 client.on('message', message => {
   if (message.content === ';version') {
     message.channel.send('Bloxtel is currently running Version 22.0.');
