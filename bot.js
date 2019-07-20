@@ -1,13 +1,13 @@
 const Discord = require("discord.js"),
     client = new Discord.Client({ disableEveryone: true }),
       prefix = ";",
-    token = "";
+    token = "NTU5ODc5OTEyMzU4Njc0NDMy.XS4WFA.sX6Uqaf0w24HM8ctx3PUHT-JxBQ";
 
 
 
 client.on("ready",async() =>{
     console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`); 
-    client.user.setActivity ('20 guilds. | ;help`, {type:3}) 
+    client.user.setActivity (`Bloxtel Support Guild | ;help`, {type:3}) 
 });
 
 client.on("message",async(message) => {
