@@ -1,7 +1,7 @@
 const Discord = require("discord.js"),
     client = new Discord.Client({ disableEveryone: true }),
       prefix = ";",
-    token = "NTU5ODc5OTEyMzU4Njc0NDMy.XS4WFA.sX6Uqaf0w24HM8ctx3PUHT-JxBQ";
+    token = "";
 const index = require ("./index.js");
 const avatar = require("./avatar.js");
 
