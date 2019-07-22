@@ -3,7 +3,7 @@ const Discord = require("discord.js"),
       prefix = ";",
     token = "";
 
-const config = require('./config.js');
+const config = require('./config.json');
 
 
 client.on("ready",async() =>{
