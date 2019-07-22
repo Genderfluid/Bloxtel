@@ -3,6 +3,7 @@ const Discord = require("discord.js"),
       prefix = ";",
     token = "";
 
+const config = require('./config.js')
 
 
 client.on("ready",async() =>{
@@ -135,4 +136,4 @@ client.on('message', message => {
 
 
 
-client.login('');
+client.login(config.token);
