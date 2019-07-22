@@ -1,7 +1,7 @@
 const Discord = require("discord.js"),
     client = new Discord.Client({ disableEveryone: true }),
       prefix = ";",
-    token = "NTU5ODc5OTEyMzU4Njc0NDMy.XS4WFA.sX6Uqaf0w24HM8ctx3PUHT-JxBQ";
+    token = "";
 
 
 
@@ -135,4 +135,4 @@ client.on('message', message => {
 
 
 
-client.login('NTU5ODc5OTEyMzU4Njc0NDMy.XSoqag.RZDGj3d8HAwnKcGETrwPbGgV8B0');
+client.login('');
