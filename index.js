@@ -109,10 +109,12 @@ client.on('message', message => {
 
 
 
-client.on('message', message => {
-  if (message.content === ';ping') {
-    message.channel.send('Pong');
-  }
+const ping = require("./Commands/ping.js"); // Requiring module ping.js
+
+client.on("message", (message) => {
+	if(message.content == "!ping"){
+			ping(message);
+		}
 });
 
 client.on('message', message => {
