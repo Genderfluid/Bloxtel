@@ -113,7 +113,7 @@ if(!scores[message.author.tag]){
 	};
 }
 scores[message.author.tag].money += 25;
-fs.writeFileSync("./scores.json", JSON.stringify(scores)
+fs.writeFileSync("./scores.json", JSON.stringify(scores));
 
 
 
