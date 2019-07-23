@@ -4,7 +4,8 @@ const Discord = require("discord.js"),
     token = "";
 
 const config = require("./config.json");
-
+const scores = require("./scores.json");
+typeof scores; // object
 
 client.on("ready",async() =>{
     console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`); 
@@ -105,7 +106,14 @@ client.on('message', message => {
   }
 });
 
-
+if(message.author.bot) return;
+if(!scores[message.author.tag]){ 
+	scores[message.author.id] = { 
+		money: 0 
+	};
+}
+scores[message.author.tag].money += 25;
+fs.writeFileSync("./scores.json", JSON.stringify(scores)
 
 
 
