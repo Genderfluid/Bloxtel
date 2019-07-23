@@ -4,13 +4,7 @@ const Discord = require("discord.js"),
     token = "";
 
 const config = require("./config.json");
-const ping = require("./ping.js"); // Requiring module ping.js
 
-client.on("message", (message) => {
-	if(message.content == "!ping"){
-			ping(message);
-		}
-});
 
 client.on("ready",async() =>{
     console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`); 
