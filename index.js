@@ -4,7 +4,13 @@ const Discord = require("discord.js"),
     token = "";
 
 const config = require("./config.json");
+const ping = require("./ping.js"); // Requiring module ping.js
 
+client.on("message", (message) => {
+	if(message.content == "!ping"){
+			ping(message);
+		}
+});
 
 client.on("ready",async() =>{
     console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`); 
@@ -109,13 +115,7 @@ client.on('message', message => {
 
 
 
-const ping = require("./Commands/ping.js"); // Requiring module ping.js
 
-client.on("message", (message) => {
-	if(message.content == "!ping"){
-			ping(message);
-		}
-});
 
 client.on('message', message => {
   if (message.content === ';version') {
@@ -125,7 +125,7 @@ client.on('message', message => {
 
 client.on('message', message => {
   if (message.content === ';help') {
-    message.channel.send('My prefix is ;. Commands: ban, mute, unmute, kick, purge, help, version, ping, and invite.');
+    message.channel.send('My prefix is ;. Commands: ban, mute, unmute, kick, avatar, purge, help, version, ping, and invite.');
   }
 });
 
