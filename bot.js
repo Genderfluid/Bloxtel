@@ -10,7 +10,7 @@ const config = require("./config.json");
 
 client.on("ready",async() =>{
     console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`); 
-    client.user.setActivity (`Bloxtel Support Guild | ;help`, {type:3}) 
+    client.user.setActivity (`${client.guilds.size} | ;help`, {type:3}) 
 });
 
 client.on("message",async(message) => {
