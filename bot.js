@@ -10,7 +10,7 @@ const config = require("./config.json");
 
 client.on("ready",async() =>{
     console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`); 
-    client.user.setActivity (`${client.guilds.size} | ;help`, {type:3}) 
+    client.user.setActivity (`${client.guilds.size} guilds | ;help`, {type:3}) 
 });
 
 client.on("message",async(message) => {
@@ -45,7 +45,7 @@ client.on("message", msg => {
   }
 
   if (msg.author.bot) return;
-  if (!msg.member.hasPermission("ADMINISTRATOR")) return;
+  if (!msg.member.hasPermission("MANAGE_GUILD")) return;
 
   if (!msg.content.toLowerCase().startsWith(prefix)) return;
   msg.delete();
@@ -54,7 +54,7 @@ client.on("message", msg => {
     mem.kick().then(() => {
       msg.channel.send(mem.displayName + " has successfully been kicked by " + msg.author.username + "!");
     }).catch(e => {
-      msg.channel.send("An error occured!");
+      msg.channel.send("An error occured! Please make sure that I have the Kick Members permission and that you have the Administrator permission.");
     });
   }
   if (msg.content.toLowerCase().startsWith(prefix + "ban ")) {
@@ -63,7 +63,7 @@ client.on("message", msg => {
     mem.ban(mc).then(() => {
       msg.channel.send(mem.displayName + " has successfully been banned by " + msg.author.username + " for " + mc + " days!");
     }).catch(e => {
-      msg.channel.send("An error occured!");
+      msg.channel.send("An error occured! Please make sure that I have the Ban Members permission and that you have the Administrator permission.");
     });
   }
   if (msg.content.toLowerCase().startsWith(prefix + "mute")) {
@@ -84,7 +84,7 @@ client.on("message", msg => {
       mem.removeRole(msg.guild.roles.find("name", "Muted")).then(() => {
         msg.channel.send(mem.displayName + " has successfully been unmuted!");
       }).catch(e => {
-        msg.channel.send("An error occured!");
+        msg.channel.send("An error occured! Please make sure that I have the manage roles permission, that the Muted role is already created, and that YOU have the Administrator permission.");
         console.log(e);
       });
 
