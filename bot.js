@@ -45,10 +45,8 @@ client.on("message", msg => {
   }
 
   if (msg.author.bot) return;
-  if (!msg.member.hasPermission("MANAGE_GUILD")) return;
+  if (!msg.member.hasPermission("KICK_MEMBERS")) return;
 
-  if (!msg.content.toLowerCase().startsWith(prefix)) return;
-  msg.delete();
   if (msg.content.toLowerCase().startsWith(prefix + "kick ")) {
     var mem = msg.mentions.members.first();
     mem.kick().then(() => {
@@ -57,7 +55,8 @@ client.on("message", msg => {
       msg.channel.send("An error occured! Please make sure that I have the Kick Members permission and that you have the Kick Members permission.");
     });
   }
-  if (msg.content.toLowerCase().startsWith(prefix + "ban ")) {
+    if (!msg.member.hasPermission("BAN_MEMBERS")) return; 
+    if (msg.content.toLowerCase().startsWith(prefix + "ban ")) {
     var mem = msg.mentions.members.first();
     var mc = msg.content.split(" ")[2];
     mem.ban(mc).then(() => {
@@ -66,6 +65,7 @@ client.on("message", msg => {
       msg.channel.send("An error occured! Please make sure that I have the Ban Members permission and that you have the Ban Members permission.");
     });
   }
+  if (!msg.member.hasPermission("MANAGE_ROLES")) return;
   if (msg.content.toLowerCase().startsWith(prefix + "mute")) {
     var mem = msg.mentions.members.first();
     if (msg.guild.roles.find("name", "Muted")) {
