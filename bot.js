@@ -54,7 +54,7 @@ client.on("message", msg => {
     mem.kick().then(() => {
       msg.channel.send(mem.displayName + " has successfully been kicked by " + msg.author.username + "!");
     }).catch(e => {
-      msg.channel.send("An error occured! Please make sure that I have the Kick Members permission and that you have the Administrator permission.");
+      msg.channel.send("An error occured! Please make sure that I have the Kick Members permission and that you have the Kick Members permission.");
     });
   }
   if (msg.content.toLowerCase().startsWith(prefix + "ban ")) {
@@ -63,7 +63,7 @@ client.on("message", msg => {
     mem.ban(mc).then(() => {
       msg.channel.send(mem.displayName + " has successfully been banned by " + msg.author.username + " for " + mc + " days!");
     }).catch(e => {
-      msg.channel.send("An error occured! Please make sure that I have the Ban Members permission and that you have the Administrator permission.");
+      msg.channel.send("An error occured! Please make sure that I have the Ban Members permission and that you have the Ban Members permission.");
     });
   }
   if (msg.content.toLowerCase().startsWith(prefix + "mute")) {
@@ -72,7 +72,7 @@ client.on("message", msg => {
       mem.addRole(msg.guild.roles.find("name", "Muted")).then(() => {
         msg.channel.send(mem.displayName + " has successfully been muted!");
       }).catch(e => {
-        msg.channel.send("An error occured!");
+        msg.channel.send("An error occured! Please make sure that both you and I have the Manage Roles permission.");
         console.log(e);
       });
 
@@ -84,7 +84,7 @@ client.on("message", msg => {
       mem.removeRole(msg.guild.roles.find("name", "Muted")).then(() => {
         msg.channel.send(mem.displayName + " has successfully been unmuted!");
       }).catch(e => {
-        msg.channel.send("An error occured! Please make sure that I have the manage roles permission, that the Muted role is already created, and that YOU have the Administrator permission.");
+        msg.channel.send("An error occured! Please make sure that I have the manage roles permission, that the Muted role is already created, and that YOU have the Manage Roles permission.");
         console.log(e);
       });
 
