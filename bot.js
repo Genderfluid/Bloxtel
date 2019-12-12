@@ -90,16 +90,13 @@ client.on("message", msg => {
 
     }
   }
-  if (msg.content.toLowerCase().startsWith(prefix + "purge")) {
-    var mc = msg.content.split(" ")[1];
-    msg.channel.bulkDelete(mc);
+   if (!msg.member.hasPermission("MANAGE_MESSAGES")) return; 
+   if (msg.content.toLowerCase().startsWith(prefix + "purge")) {
+   var mc = msg.content.split(" ")[1];
+   msg.channel.bulkDelete(mc);
   }
 });
-client.on('guildMemberAdd', member => {
-  const channel = member.guild.channels.find(ch => ch.name === 'Bloxtel join leave messages');
-  if (!channel) return;
-  channel.send(`Welcome to the server, ${member}`);
-});
+
 
 client.on('message', message => {
   if (message.content === ';avatar') {
@@ -125,7 +122,7 @@ client.on('message', message => {
 
 client.on('message', message => {
   if (message.content === ';invite') {
-    message.channel.send('https://bit.ly/bloxtel');
+    message.channel.send('Bloxtel V2 is coming out soon. When that happens, this bot will be deleted! Go to https://bit.ly/bloxtel_v2_invite to make sure you don\'t lose service!');
   }
 });
 
