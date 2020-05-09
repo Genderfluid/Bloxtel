@@ -7,24 +7,19 @@ const config = require("./config.json");
 
 
 
-
-client.on("ready",async() =>{
-    console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`); 
-    client.user.setActivity (`${client.guilds.size} guilds | ;help`, {type:3}) 
-});
-
-client.on("message",async(message) => {
-    if(message.author.bot || message.content.indexOf(prefix) !== 0) return; 
-
-
-    const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
-      const command = args.shift().toLowerCase();
-    switch(command) { 
-        case "game": 
-            return message.reply(`I am currently playing ${client.user.presence.game.name}!`);
-            break;
-    }
-});
+  switch (currentActivity) {
+    case 0:
+      return { text: 'https://RoVer.link' }
+    case 1: {
+      let totalGuilds = (await shardingManager.fetchClientValues('guilds.size')).reduce((prev, val) => prev + val, 0)
+      totalGuilds = Util.toHumanReadableNumber(totalGuilds)
+      return { text: `${totalGuilds} servers`, type: 'WATCHING' }
+    } case 2:
+      return { text: `${totalUsers} users`, type: 'LISTENING' }
+    case 3:
+      return { text: '!rover', type: 'LISTENING' }
+  }
+}
 
 client.on("ready", () => {
   console.log("ready to rumble!");
