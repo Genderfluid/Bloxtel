@@ -1,28 +1,10 @@
 const Discord = require("discord.js"),
-    client = new Discord.Client({ disableEveryone: true }),
-      prefix = ";",
-    token = "";
-
 const config = require("./config.json");
 
 
-
-  switch (currentActivity) {
-    case 0:
-      return { text: 'https://RoVer.link' }
-    case 1: {
-      let totalGuilds = (await shardingManager.fetchClientValues('guilds.size')).reduce((prev, val) => prev + val, 0)
-      totalGuilds = Util.toHumanReadableNumber(totalGuilds)
-      return { text: `${totalGuilds} servers`, type: 'WATCHING' }
-    } case 2:
-      return { text: `${totalUsers} users`, type: 'LISTENING' }
-    case 3:
-      return { text: '!rover', type: 'LISTENING' }
-  }
-}
-
 client.on("ready", () => {
-  console.log("ready to rumble!");
+    console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`); 
+    client.user.setActivity (client.guilds.size + " guilds. | ;help", {type:3}) 
 });
 
 
@@ -105,7 +87,7 @@ client.on('message', message => {
 
 client.on('message', message => {
   if (message.content === ';version') {
-    message.channel.send('Bloxtel is currently running Version 22.0.');
+    message.channel.send('Bloxtel is currently running Version 2.0.');
   }
 });
 
